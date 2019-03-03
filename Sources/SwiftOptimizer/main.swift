@@ -8,8 +8,8 @@
 import Foundation
 import SwiftOptimizerCore
 
-let sourceFileParser = SourceFileParser(path: CommandLine.arguments[1])
 do {
+    let sourceFileParser = try SourceFileParser(arguments: CommandLine.arguments)
     let sourceFile = try sourceFileParser.parse()
     print(sourceFile)
 } catch let error {

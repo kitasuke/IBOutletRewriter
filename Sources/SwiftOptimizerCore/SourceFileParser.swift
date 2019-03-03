@@ -10,13 +10,14 @@ import SwiftSyntax
 
 public class SourceFileParser {
     
-    public let path: String
-    public var pathURL: URL {
-        return URL(fileURLWithPath: path)
-    }
+    public let pathURL: URL
     
-    public init(path: String) {
-        self.path = path
+    public init(arguments: [String]) throws {
+        guard arguments.count > 1 else {
+            throw SourceFileParserError.invalidInput
+        }
+        
+        self.pathURL = URL(fileURLWithPath: arguments[1])
     }
     
     public func parse() throws -> SourceFileSyntax {
