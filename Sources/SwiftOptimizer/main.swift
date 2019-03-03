@@ -6,13 +6,15 @@
 //
 
 import Foundation
-import SwiftOptimizerCore
+import Result
+import Commandant
 
-do {
-    let sourceFileParser = try SourceFileParser(arguments: CommandLine.arguments)
-    let sourceFile = try sourceFileParser.parse()
-    let modifiedSourceFile = IBOutletRewriter().visit(sourceFile)
-    print(modifiedSourceFile)
-} catch let error {
-    print(error)
+let registry = CommandRegistry<AnyError>()
+
+registry.register(RunCommand())
+let helpCommand = HelpCommand(registry: registry)
+registry.register(helpCommand)
+
+registry.main(defaultVerb: helpCommand.verb) { error in
+    fputs("\(error)\n", stderr)
 }

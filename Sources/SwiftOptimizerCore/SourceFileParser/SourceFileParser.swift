@@ -12,12 +12,12 @@ public class SourceFileParser {
     
     public let pathURL: URL
     
-    public init(arguments: [String]) throws {
-        guard arguments.count > 1 else {
+    public init(path: String) throws {
+        guard !path.isEmpty else {
             throw SourceFileParserError.invalidInput
         }
         
-        self.pathURL = URL(fileURLWithPath: arguments[1])
+        self.pathURL = URL(fileURLWithPath: path)
     }
     
     public func parse() throws -> SourceFileSyntax {
