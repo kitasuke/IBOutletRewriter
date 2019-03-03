@@ -11,7 +11,8 @@ import SwiftOptimizerCore
 do {
     let sourceFileParser = try SourceFileParser(arguments: CommandLine.arguments)
     let sourceFile = try sourceFileParser.parse()
-    print(sourceFile)
+    let modifiedSourceFile = IBOutletRewriter().visit(sourceFile)
+    print(modifiedSourceFile)
 } catch let error {
     print(error)
 }
