@@ -1,13 +1,13 @@
 //
 //  SourceFileParserTests.swift
-//  SwiftOptimizerCoreTests
+//  IBOutletRewriterCoreTests
 //
 //  Created by Yusuke Kita on 03/02/19.
 //
 
 import Foundation
 import XCTest
-@testable import SwiftOptimizerCore
+@testable import IBOutletRewriterCore
 
 final class SourceFileParserTests: XCTestCase {
     

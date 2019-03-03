@@ -1,6 +1,6 @@
 import XCTest
 import class Foundation.Bundle
 
-final class SwiftOptimizerTests: XCTestCase {
+final class IBOutletRewriterTests: XCTestCase {
 
 }

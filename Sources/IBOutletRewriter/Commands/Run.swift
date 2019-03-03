@@ -1,6 +1,6 @@
 //
 //  Run.swift
-//  SwiftOptimizer
+//  IBOutletRewriter
 //
 //  Created by Yusuke Kita on 03/03/19.
 //
@@ -8,21 +8,21 @@
 import Foundation
 import Commandant
 import Result
-import SwiftOptimizerCore
+import IBOutletRewriterCore
 
 struct RunCommand: CommandProtocol {
     
     typealias Options = RunOptions
     
     let verb = "run"
-    let function = "Rewrite Swift code for optimizations"
+    let function = "Rewrite IBOutlet declaration"
     
     func run(_ options: RunOptions) -> Result<(), AnyError> {
         
         do {
             let sourceFileParser = try SourceFileParser(path: options.path)
             let sourceFile = try sourceFileParser.parse()
-            let modifiedSourceFile = IBOutletRewriter().visit(sourceFile)
+            let modifiedSourceFile = VariableDeclRewriter().visit(sourceFile)
             print(modifiedSourceFile)
             return .init(value: ())
         } catch let error {
@@ -46,6 +46,6 @@ struct RunOptions: OptionsProtocol {
 
     static func evaluate(_ m: CommandMode) -> Result<RunOptions, CommandantError<ClientError>> {
         return create
-            <*> m <| Option(key: "path", defaultValue: "", usage: "path to run SwiftOptimizer")
+            <*> m <| Option(key: "path", defaultValue: "", usage: "path to run IBOutletRewriter")
     }
 }

@@ -1,6 +1,6 @@
 //
 //  IBOutletRewriter.swift
-//  SwiftOptimizerCore
+//  IBOutletRewriterCore
 //
 //  Created by Yusuke Kita on 03/03/19.
 //
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftSyntax
 
-public class IBOutletRewriter: SyntaxRewriter {
+public class VariableDeclRewriter: SyntaxRewriter {
     
     override public func visit(_ node: VariableDeclSyntax) -> DeclSyntax {
         // ignore if no @IBOutlet

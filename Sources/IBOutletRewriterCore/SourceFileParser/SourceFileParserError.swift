@@ -1,6 +1,6 @@
 //
 //  SourceFileParserError.swift
-//  SwiftOptimizerCore
+//  IBOutletRewriterCore
 //
 //  Created by Yusuke Kita on 03/02/19.
 //

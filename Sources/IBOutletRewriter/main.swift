@@ -1,6 +1,6 @@
 //
 //  main.swift
-//  SwiftOptimizer
+//  IBOutletRewriter
 //
 //  Created by Yusuke Kita on 03/02/19.
 //
