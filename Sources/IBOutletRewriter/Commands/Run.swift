@@ -20,10 +20,10 @@ struct RunCommand: CommandProtocol {
     func run(_ options: RunOptions) -> Result<(), AnyError> {
         
         do {
-            let sourceFileParser = try SourceFileParser(path: options.path)
-            let sourceFile = try sourceFileParser.parse()
-            let modifiedSourceFile = VariableDeclRewriter().visit(sourceFile)
-            print(modifiedSourceFile)
+            let sourceFileParser = SourceFileParser(pathURL: URL(fileURLWithPath: options.path))
+            let sourceFileSyntax = try sourceFileParser.parse()
+            let modifiedSourceFileSyntax = VariableDeclRewriter().visit(sourceFileSyntax)
+            print(modifiedSourceFileSyntax)
             return .init(value: ())
         } catch let error {
             return .init(error: AnyError(error))
