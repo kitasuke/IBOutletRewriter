@@ -18,21 +18,51 @@ final class VariableDeclRewriterTests: XCTestCase {
 //                @IBOutlet var view: UIView!
 //            }
 //            """,
-//            """
-//            class View {
-//                @IBOutlet private var view: UIView!
-//            }
-//            """,
+            """
+            class View {
+                @IBOutlet internal var view: UIView!
+            }
+            """,
+            """
+            class View {
+                @IBOutlet private var view: UIView!
+            }
+            """,
+            """
+            class View {
+                @IBOutlet private(set) var view: UIView!
+            }
+            """,
+            """
+            class View {
+                @IBOutlet public var view: UIView!
+            }
+            """,
             """
             class View {
                 @IBOutlet weak var view: UIView!
             }
             """,
-//            """
-//            class View {
-//                @IBOutlet private(set) weak var view: UIView!
-//            }
-//            """
+            """
+            class View {
+                @IBOutlet internal weak var view: UIView!
+            }
+            """,
+            """
+            class View {
+                @IBOutlet private weak var view: UIView!
+            }
+            """,
+            """
+            class View {
+                @IBOutlet private(set) weak var view: UIView!
+            }
+            """,
+            """
+            class View {
+                @IBOutlet public weak var view: UIView!
+            }
+            """,
         ]
         
         let expected = """

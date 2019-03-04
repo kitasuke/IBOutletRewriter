@@ -9,6 +9,5 @@ import Foundation
 
 public enum ContextualKeywordKind: String {
     case IBOutlet
-    case `private`
     case weak
 }
