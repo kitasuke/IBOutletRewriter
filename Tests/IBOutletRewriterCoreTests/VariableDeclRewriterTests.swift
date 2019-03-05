@@ -13,11 +13,11 @@ final class VariableDeclRewriterTests: XCTestCase {
     
     func testRewriteVariableDecl() {
         let inputs = [
-//            """
-//            class View {
-//                @IBOutlet var view: UIView!
-//            }
-//            """,
+            """
+            class View {
+                @IBOutlet var view: UIView!
+            }
+            """,
             """
             class View {
                 @IBOutlet internal var view: UIView!
