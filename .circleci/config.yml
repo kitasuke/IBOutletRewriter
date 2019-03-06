@@ -1,9 +1,0 @@
-version: 2
-jobs:
-  test:
-    macos:
-      xcode: "10.2.0"
-    steps:
-      - checkout
-      - run: swift build
-      - run: swift test
