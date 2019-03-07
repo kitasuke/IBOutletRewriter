@@ -27,16 +27,12 @@ workflows:
             swift build
             swift test
             swift package generate-xcodeproj
+            xcodebuild test -scheme IBOutletRewriter -enableCodeCoverage YES
 
             # or run a script from your repository, like:
             # bash ./path/to/script.sh
             # not just bash, e.g.:
             # ruby ./path/to/script.rb
-    - xcode-test-mac@1.2.1:
-        inputs:
-        - generate_code_coverage_files: 'yes'
-        - output_tool: xcodebuild
-        - is_clean_build: 'no'
     - codecov@1.1.5:
         inputs:
         - CODECOV_TOKEN: "$BITRISE_CODECOV_TOKEN"
