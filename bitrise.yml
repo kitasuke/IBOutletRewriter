@@ -26,9 +26,14 @@ workflows:
             # write your script here
             swift build
             swift test
+            swift package generate-xcodeproj
+            xcodebuild test -scheme IBOutletRewriter -enableCodeCoverage YES
 
             # or run a script from your repository, like:
             # bash ./path/to/script.sh
             # not just bash, e.g.:
             # ruby ./path/to/script.rb
+    - codecov@1.1.5:
+        inputs:
+        - CODECOV_TOKEN: "$BITRISE_CODECOV_TOKEN"
     - deploy-to-bitrise-io@1.3.19: {}
