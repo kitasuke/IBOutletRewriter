@@ -61,7 +61,8 @@ Rewrite IBOutlet declaration
 ```
 ## TODOs
 
-- [] Support yml file for customized configuration
+- [ ] Support yml file for customized configuration
+- [ ] Better installation way
 
 ## Acknowledgement
 
