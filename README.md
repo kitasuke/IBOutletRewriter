@@ -17,10 +17,11 @@ Xcode 10+
 
 ### Installation
 
-Run below command and `IBOutletRewriter` binary will be generated under `.build/release/` directory
+Run below command
 
 ```terminal
-$ swift build -c release
+$ make install
+$ IBOutletRewriter help
 ```
 
 ### Available Commands
