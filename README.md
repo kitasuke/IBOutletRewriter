@@ -62,6 +62,7 @@ Rewrite IBOutlet declaration
 ```
 ## TODOs
 
+- [ ] Support executing `run` to all files in directory
 - [ ] Support yml file for customized configuration
 - [ ] Better installation way
 
