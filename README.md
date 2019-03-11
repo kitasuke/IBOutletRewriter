@@ -26,7 +26,7 @@ $ IBOutletRewriter help
 
 ### Available Commands
 
-#### `dry-run`
+#### `dry-run --path <file-path>`
 
 Dry-run for rewriting IBOutlet declaration
 
@@ -34,7 +34,7 @@ Dry-run for rewriting IBOutlet declaration
 
 Display general or command-specific help
 
-#### `run`
+#### `run --path <file-path>`
 
 Rewrite IBOutlet declaration
 
