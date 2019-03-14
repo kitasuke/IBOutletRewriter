@@ -54,7 +54,7 @@ extension ModifierListSyntax {
         } else if let privateSetModifier = self.first(where: { $0.name.tokenKind == .privateKeyword }), privateSetModifier.detail?.reduce(into: "", { result, token in result += token.text }) == "(set)" {
             // private(set) -> private
             return self.replacing(childAt: privateSetModifier.indexInParent, with: privateModifier)
-        } else if self.contains(where: { $0.name.tokenKind == .privateKeyword }) {
+        } else if self.contains(where: { [.privateKeyword, .fileprivateKeyword].contains($0.name.tokenKind) }) {
             // private
             return self
         } else {
