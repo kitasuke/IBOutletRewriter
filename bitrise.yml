@@ -15,14 +15,14 @@ workflows:
     - activate-ssh-key@4.0.3:
         run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
     - git-clone@4.0.14: {}
-    - git::https://github.com/kitasuke/bitrise-step-swift-package-manager-build-for-mac.git@master:
+    - swift-package-manager-build-for-mac@0.0.1:
         inputs:
         - build_tests: 'yes'
-    - git::https://github.com/kitasuke/bitrise-step-swift-package-manager-test-for-mac.git@master:
+    - swift-package-manager-test-for-mac@0.0.1:
         inputs:
         - is_parallel: 'yes'
         - is_skip_build: 'yes'
-    - git::https://github.com/kitasuke/bitrise-step-swift-package-manager-xcodeproj-for-mac.git@master:
+    - swift-package-manager-xcodeproj-for-mac@0.0.1:
         inputs:
         - enable_code_coverage: 'yes'
     - xcode-test-mac@1.2.1:
