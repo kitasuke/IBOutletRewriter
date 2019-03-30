@@ -66,7 +66,7 @@ Rewrite IBOutlet declaration
 - [ ] Support yml file for customized configuration
 - [ ] Better installation way
 
-## Acknowledgement
+## Acknowledgements
 
 - [SwiftRewriter](https://github.com/inamiy/SwiftRewriter)
 - [swift-ast-explorer-playground](https://github.com/kishikawakatsumi/swift-ast-explorer-playground)
