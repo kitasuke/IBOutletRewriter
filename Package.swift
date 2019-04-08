@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -7,7 +7,7 @@ let package = Package(
     name: "IBOutletRewriter",
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/apple/swift-syntax.git", .exact("0.40200.0")),
+        .package(url: "https://github.com/apple/swift-syntax.git", .exact("0.50000.0")),
         .package(url: "https://github.com/Carthage/Commandant.git", from: "0.8.0"),
     ],
     targets: [

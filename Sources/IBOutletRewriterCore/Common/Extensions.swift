@@ -29,13 +29,13 @@ extension Trivia {
 extension SyntaxFactory {
     static func makePrivateModifier() -> DeclModifierSyntax {
         return .init { builder in
-            builder.addToken(SyntaxFactory.makePrivateKeyword(leadingTrivia: .noSpace, trailingTrivia: .oneSpace))
+            builder.useName(SyntaxFactory.makePrivateKeyword(leadingTrivia: .noSpace, trailingTrivia: .oneSpace))
         }
     }
 
     static func makeWeakModifier() -> DeclModifierSyntax {
         return .init { (builder) in
-            builder.addToken(SyntaxFactory.makeIdentifier(ContextualKeywordKind.weak.rawValue, leadingTrivia: .noSpace, trailingTrivia: .oneSpace))
+            builder.useName(SyntaxFactory.makeIdentifier(ContextualKeywordKind.weak.rawValue, leadingTrivia: .noSpace, trailingTrivia: .oneSpace))
         }
     }
 }
@@ -51,7 +51,8 @@ extension ModifierListSyntax {
         } else if let internalModifier = self.first(where: { $0.name.tokenKind == .internalKeyword }) {
             // internal -> private
             return self.replacing(childAt: internalModifier.indexInParent, with: privateModifier)
-        } else if let privateSetModifier = self.first(where: { $0.name.tokenKind == .privateKeyword }), privateSetModifier.detail?.reduce(into: "", { result, token in result += token.text }) == "(set)" {
+        } else if let privateSetModifier = self.first(where: { $0.name.tokenKind == .privateKeyword }),
+            privateSetModifier.detail?.text == "set" {
             // private(set) -> private
             return self.replacing(childAt: privateSetModifier.indexInParent, with: privateModifier)
         } else if self.contains(where: { [.privateKeyword, .fileprivateKeyword].contains($0.name.tokenKind) }) {
