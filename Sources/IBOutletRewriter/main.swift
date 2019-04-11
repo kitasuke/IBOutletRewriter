@@ -13,6 +13,7 @@ let registry = CommandRegistry<AnyError>()
 
 registry.register(RunCommand())
 registry.register(DryRunCommand())
+registry.register(VersionCommand())
 let helpCommand = HelpCommand(registry: registry)
 registry.register(helpCommand)
 
