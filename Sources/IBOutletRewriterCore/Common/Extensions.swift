@@ -28,15 +28,24 @@ extension Trivia {
 
 extension SyntaxFactory {
     static func makePrivateModifier() -> DeclModifierSyntax {
-        return .init { builder in
-            builder.useName(SyntaxFactory.makePrivateKeyword(leadingTrivia: .noSpace, trailingTrivia: .oneSpace))
-        }
+        return makeDeclModifier(
+            name: SyntaxFactory.makePrivateKeyword(leadingTrivia: .noSpace, trailingTrivia: .oneSpace),
+            detailLeftParen: nil,
+            detail: nil,
+            detailRightParen: nil
+        )
     }
 
     static func makeWeakModifier() -> DeclModifierSyntax {
-        return .init { (builder) in
-            builder.useName(SyntaxFactory.makeIdentifier(ContextualKeywordKind.weak.rawValue, leadingTrivia: .noSpace, trailingTrivia: .oneSpace))
-        }
+        return makeDeclModifier(
+            name: SyntaxFactory.makeIdentifier(
+                ContextualKeywordKind.weak.rawValue,
+                leadingTrivia: .noSpace,
+                trailingTrivia: .oneSpace),
+            detailLeftParen: nil,
+            detail: nil,
+            detailRightParen: nil
+        )
     }
 }
 
