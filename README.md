@@ -1,6 +1,6 @@
 # IBOutletRewriter
 
-[![Swift 4.2](https://img.shields.io/badge/swift-4.2-orange.svg?style=flat)](https://swift.org/download/)
+[![Swift 5.0](https://img.shields.io/badge/swift-5.0-orange.svg?style=flat)](https://swift.org/download/)
 [![Build Status](https://app.bitrise.io/app/422d74ce9ce2edf9/status.svg?token=LH-9c1ubBpW33I1Nk3b_Qw)](https://app.bitrise.io/app/422d74ce9ce2edf9)
 [![codecov](https://codecov.io/gh/kitasuke/IBOutletRewriter/branch/master/graph/badge.svg)](https://codecov.io/gh/kitasuke/IBOutletRewriter)
 
@@ -10,8 +10,8 @@
 
 ## Requirements
 
-Swift 4.2+  
-Xcode 10+
+Swift 5.0+  
+Xcode 10.2+
 
 ## How to use
 
