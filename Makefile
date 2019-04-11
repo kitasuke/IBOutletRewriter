@@ -1,24 +1,16 @@
-usr_local ?= /usr/local
+.PHONY: build build_release install clean
 
-bindir = $(usr_local)/bin
-libdir = $(usr_local)/lib
+BIN_DIR = /usr/local/bin
+RELEASE_BUILD_FLAGS= -c release --static-swift-stdlib --disable-sandbox
 
 build:
-	swift build -c release --disable-sandbox
+	@swift build
+build_release:
+	@swift build $(RELEASE_BUILD_FLAGS)
 
-install: build
-	install ".build/release/IBOutletRewriter" "$(bindir)"
-	install ".build/release/libSwiftSyntax.dylib" "$(libdir)"
-	install_name_tool -change \
-		".build/x86_64-apple-macosx10.10/release/libSwiftSyntax.dylib" \
-		"$(libdir)/libSwiftSyntax.dylib" \
-		"$(bindir)/IBOutletRewriter"
-
-uninstall:
-	rm -rf "$(bindir)/IBOutletRewriter"
-	rm -rf "$(libdir)/libSwiftSyntax.dylib"
+install: build_release
+	@install -d "$(BIN_DIR)"
+	@install ".build/release/IBOutletRewriter" "$(BIN_DIR)"
 
 clean:
-	rm -rf .build
-
-.PHONY: build install uninstall clean
+	@rm -rf .build
