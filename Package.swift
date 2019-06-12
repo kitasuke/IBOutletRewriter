@@ -7,7 +7,7 @@ let package = Package(
     name: "IBOutletRewriter",
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/apple/swift-syntax.git", .exact("0.50000.0")),
+        .package(url: "https://github.com/apple/swift-syntax.git", .revision("xcode11-beta1")),
         .package(url: "https://github.com/Carthage/Commandant.git", from: "0.8.0"),
     ],
     targets: [

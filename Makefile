@@ -1,7 +1,7 @@
 .PHONY: build build_release install clean
 
 BIN_DIR = /usr/local/bin
-RELEASE_BUILD_FLAGS= -c release --static-swift-stdlib --disable-sandbox
+RELEASE_BUILD_FLAGS= -c release --disable-sandbox
 
 build:
 	@swift build

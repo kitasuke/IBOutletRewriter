@@ -13,7 +13,10 @@ public class VariableDeclRewriter: SyntaxRewriter {
     override public func visit(_ node: VariableDeclSyntax) -> DeclSyntax {
         // ignore if no @IBOutlet
         guard let attributes = node.attributes,
-            attributes.contains(where: { $0.attributeName.tokenKind == .IBOutletKind }) else {
+            attributes.contains(where: {
+                guard let attribute = $0 as? AttributeSyntax else { return false }
+                return attribute.attributeName.tokenKind == .IBOutletKind
+            }) else {
                 return super.visit(node)
         }
 

@@ -17,6 +17,6 @@ public class SourceFileParser {
     }
     
     public func parse() throws -> SourceFileSyntax {
-        return try SyntaxTreeParser.parse(pathURL)
+        return try SyntaxParser.parse(pathURL)
     }
 }
